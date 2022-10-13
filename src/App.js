@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
+import ReactTable from './ReactTable';
 
 const App = () => {
   return (
     <div>
-app
+
 <Routes>
-     <Route  exact  path='/'/>
+     <Route  exact  path='/' element={<ReactTable/>}/>
      
 
    
