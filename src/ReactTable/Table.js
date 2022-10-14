@@ -35,22 +35,26 @@ const RTable = ({columns,data}) => {
     <>
    <Container className='mt-5'>
     <Row>
-        <Col className='col-md-4'>
+        <Col className='col-md-12'>
        
                 <GlobalFilter  gFilter={globalFilter} setGfilter={setGlobalFilter}/>
        
        
         </Col>
     </Row>
-    <Row>
-        <Col>
+    
+    <Row >
+        <Col className='tableBodyHeight'>
         <Table {...getTableProps()} 
-
+       
+        
+    
+      
         style={{ textAlign: "center"}}
         responsive
         {...getTableProps()}>
 
-    <thead>
+    <thead className='tableHead'>
         {
             headerGroups.map(headerGroup=>(
                 <tr {...headerGroup.getHeaderGroupProps()}>
@@ -76,39 +80,48 @@ const RTable = ({columns,data}) => {
         }
 
     </thead>
-    <tbody {...getTableBodyProps()}>
+   
+    <tbody  {...getTableBodyProps()}>
+       
+       
         {
-            page.map((row,i)=>{
-                prepareRow(row)
-              
-                return(<tr {... row.getRowProps()}>
-                    {
-                        row.cells.map( cell=>{
+ page.map((row,i)=>{
+    prepareRow(row)
+  
+    return(<tr {... row.getRowProps()}>
+        {
+            row.cells.map( cell=>{
 
-                            return <td {...cell.getCellProps()}   style={{
-                                padding: "10px",
-                                border: "solid 1px gray",
-                                background: "skyblue",
-                                color:"black"
-                              }}>
-                                {cell.render('Cell')}</td>
-                        }
+                return <td {...cell.getCellProps()}   style={{
+                    padding: "10px",
+                    border: "solid 1px gray",
+                    background: "skyblue",
+                    color:"black"
+                  }}>
+                    {cell.render('Cell')}</td>
+            }
 
-                            
-                        )
-                    }
-
-                </tr>)
-
-
-            })
+                
+            )
         }
+
+    </tr>)
+
+
+})
+        }
+      
+        
+           
+
 
 
     </tbody>
+    
 </Table>
         </Col>
     </Row>
+    
     <Row>
         <Col><TablePagination  nextPage={nextPage} previousPage={previousPage} canNextPage={canNextPage} canPreviousPage={canPreviousPage} gotoPage={gotoPage} pageCount={pageCount} pageOptions={pageOptions} pageIndex={pageIndex}/></Col>
     </Row>

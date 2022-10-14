@@ -14,7 +14,8 @@ code {
 
 
 .GlobalSearch{
-  width:100%;
+  width:40%;
+  margin-left: auto;
   padding:1vmax;
   background-color: skyblue;
   font-size: 1vmax;
@@ -53,3 +54,14 @@ justify-content: space-between;
   align-items: center;
  
 }
+
+
+.tableBodyHeight{
+
+  height: 30vmax;
+overflow-y:auto;
+overflow-x: hidden;
+  
+
+}
+
