@@ -4,8 +4,9 @@ import { Table, Container, Col, Row } from 'react-bootstrap';
 
 
 
-import {useGlobalFilter, useSortBy, useTable} from 'react-table'
+import {useGlobalFilter, usePagination, useSortBy, useTable} from 'react-table'
 import GlobalFilter from './GlobalFilter';
+import TablePagination from './TablePagination';
 
 
 const RTable = ({columns,data}) => {
@@ -14,12 +15,16 @@ const RTable = ({columns,data}) => {
    getTableProps,
    getTableBodyProps,
    headerGroups,
-   rows,
+   page,
    prepareRow,
    state,
    setGlobalFilter,
+   nextPage,
+   previousPage,
+   canNextPage,
+   canPreviousPage
 
-    }=useTable({columns,data},useGlobalFilter,useSortBy)
+    }=useTable({columns,data},useGlobalFilter,useSortBy,usePagination)
 
     const {globalFilter} = state;
   
@@ -51,7 +56,7 @@ const RTable = ({columns,data}) => {
                         headerGroup.headers.map(columns=>(
                             <th {...columns.getHeaderProps(columns.getSortByToggleProps())}   style={{
                                 borderBottom: "solid 3px red",
-                                background: "#1e2022",
+                                background: "#363940",
                                 color: "white",
                                 fontWeight: "450",
                               }}>
@@ -70,7 +75,7 @@ const RTable = ({columns,data}) => {
     </thead>
     <tbody {...getTableBodyProps()}>
         {
-            rows.map((row,i)=>{
+            page.map((row,i)=>{
                 prepareRow(row)
               
                 return(<tr {... row.getRowProps()}>
@@ -100,6 +105,9 @@ const RTable = ({columns,data}) => {
     </tbody>
 </Table>
         </Col>
+    </Row>
+    <Row>
+        <Col><TablePagination  nextPage={nextPage} previousPage={previousPage} canNextPage={canNextPage} canPreviousPage={canPreviousPage}/></Col>
     </Row>
    </Container>
     

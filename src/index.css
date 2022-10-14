@@ -21,3 +21,24 @@ code {
   font-weight: 450;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+
+.paginationRow{
+  display: flex;
+
+}
+
+.paginationCol{
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginationButton{
+  background-color: inherit!important;
+  border-radius: 100px;
+  border-color: #2eb3a6!important;
+  color: #fff!important;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 0.65rem 1rem;
+}
