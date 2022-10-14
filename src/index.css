@@ -30,7 +30,8 @@ code {
 
 .paginationCol{
   display: flex;
-  justify-content: space-between;
+justify-content: space-between;
+  align-items: center;
 }
 
 .paginationButton{
@@ -41,4 +42,14 @@ code {
   outline: none;
   border: 1px solid transparent;
   padding: 0.65rem 1rem;
+}
+
+
+
+.pageOptionText{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
 }

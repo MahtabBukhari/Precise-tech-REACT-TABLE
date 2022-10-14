@@ -24,11 +24,12 @@ const RTable = ({columns,data}) => {
    canNextPage,
    canPreviousPage,
    gotoPage,
-   pageCount
+   pageCount,
+   pageOptions
 
     }=useTable({columns,data},useGlobalFilter,useSortBy,usePagination)
 
-    const {globalFilter} = state;
+    const {globalFilter,pageIndex} = state;
   
   return (
     <>
@@ -109,7 +110,7 @@ const RTable = ({columns,data}) => {
         </Col>
     </Row>
     <Row>
-        <Col><TablePagination  nextPage={nextPage} previousPage={previousPage} canNextPage={canNextPage} canPreviousPage={canPreviousPage} gotoPage={gotoPage} pageCount={pageCount}/></Col>
+        <Col><TablePagination  nextPage={nextPage} previousPage={previousPage} canNextPage={canNextPage} canPreviousPage={canPreviousPage} gotoPage={gotoPage} pageCount={pageCount} pageOptions={pageOptions} pageIndex={pageIndex}/></Col>
     </Row>
    </Container>
     
