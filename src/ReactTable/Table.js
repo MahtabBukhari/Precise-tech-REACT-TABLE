@@ -1,8 +1,12 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Container, Col, Row } from 'react-bootstrap';
 
 
-import {useTable} from 'react-table'
+
+
+import {useGlobalFilter, useTable} from 'react-table'
+import GlobalFilter from './GlobalFilter';
+
 
 const RTable = ({columns,data}) => {
 
@@ -11,13 +15,32 @@ const RTable = ({columns,data}) => {
    getTableBodyProps,
    headerGroups,
    rows,
-   prepareRow
+   prepareRow,
+   state,
+   setGlobalFilter,
 
-    }=useTable({columns,data})
+  
+
+    }=useTable({columns,data},useGlobalFilter)
+
+    const {globalFilter} = state;
   
   return (
     <>
-<Table {...getTableProps()}  style={{ textAlign: "center" }}
+   <Container className='mt-5'>
+    <Row>
+        <Col className='col-md-4'>
+       
+                <GlobalFilter  gFilter={globalFilter} setGfilter={setGlobalFilter}/>
+       
+       
+        </Col>
+    </Row>
+    <Row>
+        <Col>
+        <Table {...getTableProps()} 
+
+        style={{ textAlign: "center"}}
         responsive
         {...getTableProps()}>
 
@@ -30,9 +53,9 @@ const RTable = ({columns,data}) => {
                         headerGroup.headers.map(columns=>(
                             <th {...columns.getHeaderProps()}   style={{
                                 borderBottom: "solid 3px red",
-                                background: "aliceblue",
-                                color: "black",
-                                fontWeight: "bold",
+                                background: "#1e2022",
+                                color: "white",
+                                fontWeight: "450",
                               }}>
 
                                 {  columns.render('Header')}
@@ -58,7 +81,8 @@ const RTable = ({columns,data}) => {
                             return <td {...cell.getCellProps()}   style={{
                                 padding: "10px",
                                 border: "solid 1px gray",
-                                background: "papayawhip",
+                                background: "skyblue",
+                                color:"black"
                               }}>
                                 {cell.render('Cell')}</td>
                         }
@@ -76,6 +100,12 @@ const RTable = ({columns,data}) => {
 
     </tbody>
 </Table>
+        </Col>
+    </Row>
+   </Container>
+    
+  
+
     </>
   )
 }
