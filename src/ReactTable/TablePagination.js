@@ -27,7 +27,7 @@ const TablePagination = ({nextPage,previousPage,canNextPage,canPreviousPage, got
               </select>
 
 
-          6
+          
             </Col>
             <Col className='col-lg-6 col-md-6 col-sm-6 paginationCol'>
            

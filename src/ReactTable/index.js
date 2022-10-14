@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import axios from 'axios'
 import RTable from './Table'
-import COLUMNS from './columns.json'
+// import COLUMNS from './columns.json'
+
+
 
 
 const dummyData =[
@@ -25,24 +27,79 @@ const dummyData =[
       ]
     }]
 
+    const COLUMNS = [
+      {
+          Header:"Id",
+          accessor:"id"
+      },
+      {
+          Header:"Title",
+          accessor:"title"
+      },
+      {
+          Header:"Description",
+          accessor:"description"
+      },
+      {
+          Header:"Price",
+          accessor:"price"
+      },
+      {
+          Header:"Discount",
+          accessor:"discountPercentage"
+      },
+      {
+          Header:"Rating",
+          accessor:"rating"
+      },
+      {
+          Header:"Stock",
+          accessor: "stock"
+      },
+      {
+          Header:"Brand",
+          accessor:"brand"
+      },
+      {
+          Header:"Category",
+          accessor: "category"
+      },
+      {
+          Header:"Image",
+          accessor: "thumbnail",
+        Cell:({row})=> <img src={row.values.thumbnail} alt="imageProduct" height={50}/>
+    
+          
+         
+      }
+    
+    ]
+
 const ReactTable = () => {
-    const [productData,setData]=useState(dummyData)
+    const [Data,setData]=useState(dummyData)
     const columns = useMemo(()=> COLUMNS,[])
-    const data = useMemo(()=> productData,[productData])
-    console.log(data)
+    const data = useMemo(()=> Data,[Data])
+    // console.log(data)
+
+
+    const getData=async()=>{
+
+        try {
+           const response = await axios.get('https://dummyjson.com/products')//.then(response=> setData(response.data.products)).catch(e=>console.log(e))
+            setData(response.data.products)
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+
+            
+             
+          }
 
 
     useEffect(()=>{
           
-       async function  getData(){
-
-      await axios.get('https://dummyjson.com/products').then(response=> setData(response.data.products)).catch(e=>console.log(e))
-          
-        
-
-           
-        }
-
        getData()
 
     },[])
