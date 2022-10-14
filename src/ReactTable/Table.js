@@ -4,7 +4,7 @@ import { Table, Container, Col, Row } from 'react-bootstrap';
 
 
 
-import {useGlobalFilter, useTable} from 'react-table'
+import {useGlobalFilter, useSortBy, useTable} from 'react-table'
 import GlobalFilter from './GlobalFilter';
 
 
@@ -19,9 +19,7 @@ const RTable = ({columns,data}) => {
    state,
    setGlobalFilter,
 
-  
-
-    }=useTable({columns,data},useGlobalFilter)
+    }=useTable({columns,data},useGlobalFilter,useSortBy)
 
     const {globalFilter} = state;
   
@@ -51,7 +49,7 @@ const RTable = ({columns,data}) => {
                     {
 
                         headerGroup.headers.map(columns=>(
-                            <th {...columns.getHeaderProps()}   style={{
+                            <th {...columns.getHeaderProps(columns.getSortByToggleProps())}   style={{
                                 borderBottom: "solid 3px red",
                                 background: "#1e2022",
                                 color: "white",
@@ -59,6 +57,7 @@ const RTable = ({columns,data}) => {
                               }}>
 
                                 {  columns.render('Header')}
+                                {columns.isSorted?(columns.isSortedDesc?"🔽":"🔼"):""}
 
                             </th>
                         ))

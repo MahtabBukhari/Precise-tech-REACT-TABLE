@@ -38,6 +38,7 @@
     {
         "Header":"Image",
         "accessor": "thumbnail"
+       
     }
 
 ]

@@ -16,4 +16,8 @@ code {
 .GlobalSearch{
   width:100%;
   padding:1vmax;
+  background-color: skyblue;
+  font-size: 1vmax;
+  font-weight: 450;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
