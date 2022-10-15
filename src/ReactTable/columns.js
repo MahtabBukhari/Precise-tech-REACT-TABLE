@@ -3,11 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap"
 import {TfiPencil,TfiTrash} from 'react-icons/tfi'
 import { Link } from "react-router-dom"
 
-const OnEdite=()=>{
-  
-   
-  
-}
+
 
 const onDelete=async(id)=>{
     console.log(id)
@@ -78,7 +74,7 @@ const onDelete=async(id)=>{
           return ( <Container style={{margin:"2vmax 3vmax 0 0"}}>
           <Row className="ActionCol">
             <Col className="col-lg-5 col-md-5 col-sm-5">
-          <Link to={`/edit/${row.values.id}`}>  <Button onClick={()=>OnEdite(row.values)} ><TfiPencil/></Button></Link>
+          <Link to={`/edit/${row.values.id}`}>  <Button><TfiPencil/></Button></Link>
             
 
             </Col >
