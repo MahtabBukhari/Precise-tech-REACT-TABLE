@@ -1,9 +1,12 @@
 import axios from "axios"
 import { Button, Col, Container, Row } from "react-bootstrap"
 import {TfiPencil,TfiTrash} from 'react-icons/tfi'
+import { Link } from "react-router-dom"
 
-const onEdite=()=>{
-    alert('edit')
+const OnEdite=()=>{
+  
+   
+  
 }
 
 const onDelete=async({id})=>{
@@ -33,38 +36,38 @@ const onDelete=async({id})=>{
           accessor:"title"
       },
       {
+        Header:"Price",
+        accessor:"price"
+    },
+      {
           Header:"Description",
           accessor:"description"
       },
-      {
-          Header:"Price",
-          accessor:"price"
-      },
-      {
-          Header:"Discount",
-          accessor:"discountPercentage"
-      },
-      {
-          Header:"Rating",
-          accessor:"rating"
-      },
-      {
-          Header:"Stock",
-          accessor: "stock"
-      },
-      {
-          Header:"Brand",
-          accessor:"brand"
-      },
+    
       {
           Header:"Category",
-          accessor: "category"
-      },
-      {
-          Header:"Image",
-          accessor: "thumbnail",
-        Cell:({row})=> <img src={row.values.thumbnail} alt="imageProduct" height={100} width={100}/>    
-         
+          accessor: "category",
+          columns:[
+            {
+                Header:"CategoryID",
+                accessor:"category.id"
+            },
+            {
+                Header:"Name",
+                accessor:"category.name"
+            },
+            {
+                Header:"Image",
+                accessor: "category.image",
+                 Cell:({cell:{value}})=><div> 
+                
+                     <img src={value} alt="imageProduct" height={100} width={100}/>    
+                   
+                 </div> 
+                    
+               
+            }
+          ]
       },
       {
         Header:"Actions",
@@ -73,7 +76,7 @@ const onDelete=async({id})=>{
           return ( <Container style={{margin:"2vmax 3vmax 0 0"}}>
           <Row className="ActionCol">
             <Col className="col-lg-5 col-md-5 col-sm-5">
-            <Button onClick={()=>onEdite(row.values)} ><TfiPencil/></Button>
+          <Link to={`/edit/${row.values.id}`}>  <Button onClick={()=>OnEdite(row.values)} ><TfiPencil/></Button></Link>
             
 
             </Col >

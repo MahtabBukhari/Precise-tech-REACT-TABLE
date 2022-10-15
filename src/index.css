@@ -85,3 +85,16 @@ overflow-x: hidden;
   top: 0;
   
 } */
+
+
+.editForm{
+
+padding: 2vmax;
+width: 80%;
+margin: 8vmax auto;
+  display: flex;
+  
+  justify-content: center;
+ 
+  
+}
