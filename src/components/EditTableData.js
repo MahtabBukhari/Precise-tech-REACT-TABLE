@@ -5,21 +5,17 @@ import { useParams } from "react-router-dom";
 
 const EditTableData = () => {
   const [productData, setProductData] = useState([]);
-//   const {
-//     brand,
-//     category,
-//     description,
-//     discountPercentage,
-//     price,
-//     rating,
-//     stock,
-//     thumbnail,
-//     title,
-//   } = productData;
 
-//      console.log(title,thumbnail,stock,rating)
+console.log(productData)
+
+const {title,price,description}=productData;
+
+
+console.log(title,price,description)
+
+
   const { id } = useParams();
-  //   console.log(id)
+    console.log(id)
 
   useEffect(() => {
     const getOneProductData = async (id) => {
@@ -27,7 +23,7 @@ const EditTableData = () => {
 
       try {
         const response = await axios.get(
-          `https://dummyjson.com/products/${id}`
+          `https://api.escuelajs.co/api/v1/products/${id}`
         ); //.then(response=> setData(response.data.products)).catch(e=>console.log(e))
         setProductData(response.data);
       } catch (error) {

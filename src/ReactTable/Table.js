@@ -13,7 +13,7 @@ import TablePagination from './TablePagination';
 
 
 
-const RTable = ({columns,data}) => {
+const RTable = ({columns,data,refresh}) => {
 
     const {
    getTableProps,
@@ -43,7 +43,7 @@ const RTable = ({columns,data}) => {
     <Row >
         <Col className='col-md-12'>
        
-                <GlobalFilter  gFilter={globalFilter} setGfilter={setGlobalFilter}/>
+                <GlobalFilter  gFilter={globalFilter} setGfilter={setGlobalFilter} refresh={refresh} />
        
        
         </Col>

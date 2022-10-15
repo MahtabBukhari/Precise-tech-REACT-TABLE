@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Navbar } from 'react-bootstrap'
+import { Button, Navbar } from 'react-bootstrap'
 
 import {useAsyncDebounce} from 'react-table'
 
-const GlobalFilter = ({gFilter, setGfilter}) => {
+const GlobalFilter = ({gFilter, setGfilter,refresh}) => {
 
 const ref = useRef()
 useEffect(()=>{
   ref.current.focus()
+
+ 
 
 },[])
 
@@ -25,13 +27,29 @@ useEffect(()=>{
     <>
 
     <Navbar bg='dark' variant='dark'>
+
+     
+    
+      
+
       <Navbar.Brand><h3>Product List</h3></Navbar.Brand>
-    <input className='p-2 GlobalSearch' ref={ref} value={value || undefined} onChange={e=>{
+
+     
+
+      <Button className='mr-2 refreshButton' onClick={refresh} variant="dark" ><img src='http://dev.eutsol.ca:2021/eut/static/media/refresh-arrow.05739bdd.png' alt='spinner' width={40} height={40}/></Button>
+
+     
+
+    
+
+    <input className='p-2 mr-3 GlobalSearch' ref={ref} value={value || undefined} onChange={e=>{
        setValue(e.target.value)
        onChange(e.target.value)
     }
       
     } placeholder='Search....'/>
+       
+ 
 
     </Navbar>
   

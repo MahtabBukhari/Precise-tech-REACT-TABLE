@@ -16,7 +16,7 @@ code {
 
 .GlobalSearch{
   width:40%;
-  margin-left: auto;
+
   padding:1vmax;
   background-color: white;
   font-size: 1vmax;
@@ -97,4 +97,8 @@ margin: 8vmax auto;
   justify-content: center;
  
   
+}
+
+.refreshButton{
+  margin-left: auto;
 }

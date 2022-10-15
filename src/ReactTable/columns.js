@@ -9,12 +9,14 @@ const OnEdite=()=>{
   
 }
 
-const onDelete=async({id})=>{
+const onDelete=async(id)=>{
+    console.log(id)
+    
 
  try {
      
-     const respone = await axios.delete(`https://dummyjson.com/products/${id}`)
-     console.log(respone)
+      await axios.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
+    //  console.log(respone)
  } catch (error) {
     console.log(error)
     
@@ -80,7 +82,8 @@ const onDelete=async({id})=>{
             
 
             </Col >
-            <Col className="col-lg-5 col-md-5 col-sm-5"><Button variant="danger" onClick={()=>onDelete(row.values)}><TfiTrash/></Button></Col>
+            <Col className="col-lg-5 col-md-5 col-sm-5">
+          <Button variant="danger" onClick={()=>onDelete(row.values.id)}><TfiTrash/></Button></Col>
             
           </Row>
             

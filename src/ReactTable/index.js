@@ -4,11 +4,14 @@ import RTable from './Table'
 import {COLUMNS }from './columns'
 
 
+
 const ReactTable = () => {
 
+ 
 
 
 
+// const [refreshData, setRefreshData]=useState(false)
 
     const [Data,setData]=useState([])
     const columns = useMemo(()=> COLUMNS,[])
@@ -16,7 +19,7 @@ const ReactTable = () => {
     // console.log(data)
 
 
-    const getData=async()=>{
+   async function getData(){
 
         try {
            const response = await axios.get('https://api.escuelajs.co/api/v1/products')//.then(response=> setData(response.data.products)).catch(e=>console.log(e))
@@ -31,16 +34,34 @@ const ReactTable = () => {
              
           }
 
+          
+         const refresh=async()=>{
+        
+          setData([])
+           
+          getData()
+
+         }
+         
+
 
     useEffect(()=>{
           
-       getData()
+     
+    
+
+        getData()
+
+       
+      
+   
 
     },[])
 
   return (
     <>
-    <RTable columns={columns} data={data}/>
+    {/* <button type='submit' onClick={refresh}>Refresh</button> */}
+    <RTable columns={columns} data={data} refresh={refresh} />
     </>
   )
 }
