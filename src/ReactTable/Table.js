@@ -9,6 +9,10 @@ import GlobalFilter from './GlobalFilter';
 import TablePagination from './TablePagination';
 
 
+
+
+
+
 const RTable = ({columns,data}) => {
 
     const {
@@ -26,7 +30,8 @@ const RTable = ({columns,data}) => {
    gotoPage,
    pageCount,
    pageOptions,
-   setPageSize
+   setPageSize,
+   
 
     }=useTable({columns,data},useGlobalFilter,useSortBy,usePagination)
 
@@ -35,7 +40,7 @@ const RTable = ({columns,data}) => {
   return (
     <>
    <Container className='mt-5'>
-    <Row>
+    <Row >
         <Col className='col-md-12'>
        
                 <GlobalFilter  gFilter={globalFilter} setGfilter={setGlobalFilter}/>
@@ -47,18 +52,15 @@ const RTable = ({columns,data}) => {
     <Row >
         <Col className='tableBodyHeight'>
         <Table {...getTableProps()} 
-       
-        
-    
-      
-        style={{ textAlign: "center"}}
+       striped bordered hover size="sm"
+        style={{ textAlign: "center",width:"100%"}}
         responsive
         {...getTableProps()}>
 
-    <thead className='tableHead'>
+    <thead >
         {
             headerGroups.map(headerGroup=>(
-                <tr {...headerGroup.getHeaderGroupProps()}>
+                <tr  {...headerGroup.getHeaderGroupProps()}>
                     {
 
                         headerGroup.headers.map(columns=>(
@@ -67,7 +69,8 @@ const RTable = ({columns,data}) => {
                                 background: "#363940",
                                 color: "white",
                                 fontWeight: "450",
-                              }}>
+                               
+                              }}  >
 
                                 {  columns.render('Header')}
                                 {columns.isSorted?(columns.isSortedDesc?"🔽":"🔼"):""}
@@ -89,14 +92,14 @@ const RTable = ({columns,data}) => {
  page.map((row,i)=>{
     prepareRow(row)
   
-    return(<tr {... row.getRowProps()}>
+    return(<tr  {... row.getRowProps()}>
         {
             row.cells.map( cell=>{
 
                 return <td {...cell.getCellProps()}   style={{
                     padding: "10px",
                     border: "solid 1px gray",
-                    background: "skyblue",
+                    
                     color:"black"
                   }}>
                     {cell.render('Cell')}</td>

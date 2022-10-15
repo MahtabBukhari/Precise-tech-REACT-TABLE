@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -67,3 +68,20 @@ overflow-x: hidden;
 
 }
 
+.ActionCol{
+  display: flex;
+  justify-content: space-around;
+
+
+}
+
+
+/* .reactTable{
+  position: absolute;
+}
+
+.tableHead{
+  position: relative;
+  top: 0;
+  
+} */
