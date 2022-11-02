@@ -1,0 +1,8 @@
+ /* css for tooltip in ract table 7 */
+
+td{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20px;
+}

@@ -58,15 +58,32 @@ justify-content: space-between;
  
 }
 
-
+/* table height and header sticky */
 .tableBodyHeight{
 
   height: 30vmax;
-overflow-y:auto;
+overflow-y:scroll;
 overflow-x: hidden;
+
   
 
 }
+
+
+th{
+  resize: horizontal;
+  overflow: auto;
+  border: 1px solid black;
+
+}
+
+td{
+ 
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+
 
 .ActionCol{
   display: flex;
@@ -102,3 +119,8 @@ margin: 8vmax auto;
 .refreshButton{
   margin-left: auto;
 }
+
+
+
+
+

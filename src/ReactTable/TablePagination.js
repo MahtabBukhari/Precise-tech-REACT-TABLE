@@ -13,7 +13,7 @@ const TablePagination = ({nextPage,previousPage,canNextPage,canPreviousPage, got
             </Col>
             <Col className='col-lg-3 col-md-3 col-sm-3 paginationCol'>
 
-              <select value={pageSize} onChange={e=> setPageSize(Number(e.target.value))} style={{width:"6vmax",height:"3vmax",padding:"0.2vmax"}}>
+              <select value={pageSize} onChange={e=> setPageSize(Number(e.target.value))} style={{width:"8vmax",height:"3vmax",padding:"0.2vmax"}}>
 
                 
                  { [5,15,25].map(pageSize=>(

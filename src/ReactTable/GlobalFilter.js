@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Navbar } from 'react-bootstrap'
-
+import {Navbar } from 'react-bootstrap'
+import refreshImage from '../asset/images/refresh.png'
 import {useAsyncDebounce} from 'react-table'
 
 const GlobalFilter = ({gFilter, setGfilter,refresh}) => {
@@ -22,11 +22,16 @@ useEffect(()=>{
 
     },1000)
 
+    const OnRefresh=()=>{
+      refresh()
+    setValue(' ')
+
+    }
 
   return (
     <>
 
-    <Navbar bg='dark' variant='dark'>
+    <Navbar  bg='dark' variant='dark'>
 
      
     
@@ -36,7 +41,7 @@ useEffect(()=>{
 
      
 
-      <Button className='mr-2 refreshButton' onClick={refresh} variant="dark" ><img src='http://dev.eutsol.ca:2021/eut/static/media/refresh-arrow.05739bdd.png' alt='spinner' width={40} height={40}/></Button>
+      <div className='mr-2 refreshButton' onClick={OnRefresh} variant="dark" ><img src={refreshImage} alt='spinner' width={40} height={40}/></div>
 
      
 

@@ -95,7 +95,7 @@ const EditTableData = () => {
 
             <Form.Group className="mb-3" controlId="description">
               <Form.Label>description</Form.Label>
-              <Form.Control
+              <Form.Control as="textarea" rows={5}
                 type="text"
                 placeholder="Enter description"
                 onChange={(e) => setUpDescription(e.target.value)}

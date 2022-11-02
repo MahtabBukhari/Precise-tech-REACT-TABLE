@@ -31,7 +31,13 @@ const onDelete=async(id)=>{
       },
       {
           Header:"Title",
-          accessor:"title"
+          accessor:"title",
+          Cell: (row) => {
+            /* Add data-tip */
+            console.log(row.value)
+            return <span data-toggle="tooltip" data-placement="left" title={(row.value)}>{row.value}</span> ;
+            
+          }
       },
       {
         Header:"Price",
@@ -39,7 +45,15 @@ const onDelete=async(id)=>{
     },
       {
           Header:"Description",
-          accessor:"description"
+          accessor:"description", 
+
+          // show tool tip in for specific column
+          Cell: (row) => {
+            /* Add data-tip */
+            console.log(row.value)
+            return <span data-toggle="tooltip" data-placement="left" title={(row.value)}>{row.value}</span> ;
+            
+          }
       },
     
       {
