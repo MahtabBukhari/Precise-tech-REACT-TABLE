@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Button, Col, Container, Row } from "react-bootstrap"
+import { Button, Container, Row } from "react-bootstrap"
 import {TfiPencil,TfiTrash} from 'react-icons/tfi'
 import { Link } from "react-router-dom"
 
@@ -85,15 +85,15 @@ const onDelete=async(id)=>{
         Header:"Actions",
         accessor:"actions",
         Cell:({row})=>{
-          return ( <Container style={{margin:"2vmax 3vmax 0 0"}}>
-          <Row className="ActionCol">
-            <Col className="col-lg-5 col-md-5 col-sm-5">
-          <Link to={`/edit/${row.values.id}`}>  <Button><TfiPencil/></Button></Link>
+          return ( <Container >
+          <Row className="d-block" >
+         
+          <Link to={`/edit/${row.values.id}`}>  <Button className="mr-3" size="sm"><TfiPencil/></Button></Link>
             
 
-            </Col >
-            <Col className="col-lg-5 col-md-5 col-sm-5">
-          <Button variant="danger" onClick={()=>onDelete(row.values.id)}><TfiTrash/></Button></Col>
+        
+       
+          <Button variant="danger" size="sm" onClick={()=>onDelete(row.values.id)}><TfiTrash/></Button>
             
           </Row>
             

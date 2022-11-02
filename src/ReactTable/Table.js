@@ -99,12 +99,12 @@ const RTable = ({ columns, data, refresh }) => {
                   prepareRow(row);
 
                   return (
-                    <tr {...row.getRowProps()}>
+                    <tr  {...row.getRowProps()}>
                       {row.cells.map((cell) => {
                         return (
                           <td 
                             {...cell.getCellProps()}
-                          
+                            className="text-center align-middle"
                           >
 
                         
