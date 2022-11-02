@@ -43,9 +43,10 @@ const RTable = ({ columns, data, refresh }) => {
 
   return (
     <>
-      <Container className="mt-5">
-        <Row>
-          <Col className="col-md-12">
+      <Container className="mt-5 disapearScrollBar" 
+              >
+        <Row   >
+          <Col className="col-md-12" >
             <GlobalFilter
               gFilter={globalFilter}
               setGfilter={setGlobalFilter}
@@ -54,19 +55,22 @@ const RTable = ({ columns, data, refresh }) => {
           </Col>
         </Row>
 
-        <Row>
-          <Col className="tableBodyHeight">
-            <Table
+        <Row  style={{
+                maxHeight:"400px",
+                
+              }}>
+          <Col  className="tableContainer">
+            <Table 
+           
               {...getTableProps()}
-              striped
-              bordered
-              hover
-              size="sm"
-              style={{ textAlign: "center", width: "100%" }}
+           
+              className="striped highlight mx-auto table-sm table-bordered"
+             striped
+             hover
               responsive
               {...getTableProps()}
             >
-              <thead>
+              <thead className="text-center">
                 {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((columns) => (
@@ -94,7 +98,7 @@ const RTable = ({ columns, data, refresh }) => {
                 ))}
               </thead>
 
-              <tbody {...getTableBodyProps()}>
+              <tbody {...getTableBodyProps()}  >
                 {page.map((row, i) => {
                   prepareRow(row);
 

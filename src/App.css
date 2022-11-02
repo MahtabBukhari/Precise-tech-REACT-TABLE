@@ -6,3 +6,46 @@ td{
     text-overflow: ellipsis;
     max-width: 20px;
 }
+
+
+Table thead{
+    position: sticky;
+    top: 0px;
+    margin: 0 0 0 0;
+}
+
+.tableContainer{
+    border-radius: 20px;
+    height: 380px;
+   
+    
+    overflow: auto;
+    box-sizing: border-box;
+ 
+  
+ 
+ 
+}
+
+
+
+/* how customize the scroll bar with css  that is the method */
+
+::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: red;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

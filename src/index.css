@@ -59,15 +59,7 @@ justify-content: space-between;
 }
 
 /* table height and header sticky */
-.tableBodyHeight{
 
-  height: 30vmax;
-overflow-y:scroll;
-overflow-x: hidden;
-
-  
-
-}
 
 
 th{
